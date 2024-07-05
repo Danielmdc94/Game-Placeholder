@@ -4,7 +4,7 @@ int main()
 {
 	Engine engine;
 
-	engine.start();
+	engine.Start();
 
 	return EXIT_SUCCESS;
 }

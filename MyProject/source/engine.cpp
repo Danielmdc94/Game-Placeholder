@@ -2,24 +2,24 @@
 
 Engine::Engine()
 {
-	window.create(VideoMode(WIN_W, WIN_H), NAME);
-	window.setFramerateLimit(60);
+	window.create(VideoMode(WIN_W, WIN_H), NAME, sf::Style::Default, settings);
+	window.setFramerateLimit(FPS);
 }
 
-void Engine::start()
+void Engine::Start()
 {
 	while (window.isOpen())
 	{
 		deltaTime = clock.restart();
-		double deltaTimeAsSeconds = deltaTime.asSeconds();
+		double deltaTimeInSeconds = deltaTime.asSeconds();
 		while (window.pollEvent(event))
-			input(event);
-		update(deltaTimeAsSeconds);
-		render();
+			Input(event);
+		Update(deltaTimeInSeconds);
+		Render();
 	}
 }
 
-void Engine::input(Event event)
+void Engine::Input(Event event)
 {
     switch (event.type)
     {
@@ -35,16 +35,19 @@ void Engine::input(Event event)
     }
 }
 
-void Engine::render()
+void Engine::Render()
 {
 	window.clear(Color::Black);
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
+	shape.setOutlineThickness(10.f);
+	shape.setOutlineColor(sf::Color::Blue);
+	shape.move(sf::Vector2f(200, 200));
 	window.draw(shape);
 	window.display();
 }
 
-void Engine::update(double deltaTimeInSeconds)
+void Engine::Update(double deltaTimeInSeconds)
 {
 	return ;
 }
