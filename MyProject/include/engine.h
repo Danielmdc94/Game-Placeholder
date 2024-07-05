@@ -8,7 +8,7 @@
 #include <iostream>
 #include <sstream>
 
-# define NAME               "MyProject"
+# define NAME               "MyRPG"
 # define WIN_W 				1920
 # define WIN_H 				1080
 
