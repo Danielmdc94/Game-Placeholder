@@ -56,5 +56,6 @@ void Engine::Render()
 
 void Engine::Update(double deltaTimeInSeconds)
 {
+	player.Update(deltaTimeInSeconds);
 	return ;
 }
