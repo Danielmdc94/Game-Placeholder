@@ -51,11 +51,14 @@ void Engine::Render()
 
 	window.draw(player.GetSprite());
 
+	window.draw(enemy.GetSprite());
+
 	window.display();
 }
 
 void Engine::Update(double deltaTimeInSeconds)
 {
 	player.Update(deltaTimeInSeconds);
+	enemy.Update(deltaTimeInSeconds);
 	return ;
 }

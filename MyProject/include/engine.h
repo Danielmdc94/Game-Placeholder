@@ -10,6 +10,7 @@
 #include <sstream>
 
 #include "../include/player.h"
+#include "../include/enemy.h"
 
 # define NAME       "MyRPG"
 # define WIN_W 		1920
@@ -29,6 +30,7 @@ private:
 	Clock			clock;
 
 	Player			player;
+	Enemy			enemy;
 
 	void Load();
 	void Input(Event event);
