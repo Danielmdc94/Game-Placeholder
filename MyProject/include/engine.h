@@ -9,6 +9,8 @@
 #include <iostream>
 #include <sstream>
 
+#include "../include/player.h"
+
 # define NAME       "MyRPG"
 # define WIN_W 		1920
 # define WIN_H 		1080
@@ -26,12 +28,16 @@ private:
 	Time			deltaTime;
 	Clock			clock;
 
+	Player			player;
+
+	void Load();
 	void Input(Event event);
 	void Update(double deltaTimetInSeconds);
 	void Render();
 
 public:
 	Engine();
+	~Engine();
 
 	void Start();
 };

@@ -6,6 +6,11 @@ Engine::Engine()
 	window.setFramerateLimit(FPS);
 }
 
+Engine::~Engine()
+{
+
+}
+
 void Engine::Start()
 {
 	while (window.isOpen())
@@ -17,6 +22,11 @@ void Engine::Start()
 		Update(deltaTimeInSeconds);
 		Render();
 	}
+}
+
+void Engine::Load()
+{
+
 }
 
 void Engine::Input(Event event)
@@ -38,12 +48,9 @@ void Engine::Input(Event event)
 void Engine::Render()
 {
 	window.clear(Color::Black);
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-	shape.setOutlineThickness(10.f);
-	shape.setOutlineColor(sf::Color::Blue);
-	shape.move(sf::Vector2f(200, 200));
-	window.draw(shape);
+
+	window.draw(player.GetSprite());
+
 	window.display();
 }
 
