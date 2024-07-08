@@ -32,12 +32,15 @@ void Player::Move(const float dirX, const float dirY)
 
 void Player::Update(double deltaTime)
 {
+	float speed = 1.f;
+	if (Keyboard::isKeyPressed(Keyboard::LShift))
+		speed = 2.5;
 	if (Keyboard::isKeyPressed(Keyboard::W))
-		Move(0, -1.f);
+		Move(0, -speed);
 	if (Keyboard::isKeyPressed(Keyboard::A))
-		Move(-1.f, 0);
+		Move(-speed, 0);
 	if (Keyboard::isKeyPressed(Keyboard::S))
-		Move(0, 1.f);
+		Move(0, speed);
 	if (Keyboard::isKeyPressed(Keyboard::D))
-		Move(1.f, 0);
+		Move(speed, 0);
 }
