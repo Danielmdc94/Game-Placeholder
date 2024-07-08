@@ -60,5 +60,6 @@ void Engine::Update(double deltaTimeInSeconds)
 {
 	player.Update(deltaTimeInSeconds);
 	enemy.Update(deltaTimeInSeconds);
+
 	return ;
 }

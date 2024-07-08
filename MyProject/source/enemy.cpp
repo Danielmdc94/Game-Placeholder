@@ -9,6 +9,8 @@ void Enemy::LoadCharacter()
 	}
 	characterSprite.setTexture(characterTexture);
 	characterSprite.setTextureRect(sf::IntRect(0, 64 * 2, 64, 64));
+	characterSprite.setOrigin(characterSprite.getTextureRect().width / 2, characterSprite.getTextureRect().height / 2);
+	characterSprite.setPosition(sf::Vector2f(WIN_W / 2, WIN_H / 2));
 }
 
 Enemy::Enemy()
@@ -32,5 +34,9 @@ void Enemy::Move(const float dirX, const float dirY)
 
 void Enemy::Update(double deltaTime)
 {
-	characterSprite.setPosition(sf::Vector2f(300, 300));
+	if ((characterSprite.getPosition().x + (characterSprite.getTextureRect().width / 2) > WIN_W && increment.x > 0) || (characterSprite.getPosition().x - (characterSprite.getTextureRect().width / 2) < 0 && increment.x < 0))
+		increment.x = -increment.x;
+	if ((characterSprite.getPosition().y + (characterSprite.getTextureRect().height / 2) > WIN_H && increment.y > 0) || (characterSprite.getPosition().y - (characterSprite.getTextureRect().height / 2) < 0 && increment.y < 0))
+		increment.y = -increment.y;
+	characterSprite.setPosition(characterSprite.getPosition() + increment);
 }

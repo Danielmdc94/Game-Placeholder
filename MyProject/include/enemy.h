@@ -14,6 +14,8 @@ private:
 	sf::Sprite	characterSprite;
 	sf::Texture	characterTexture;
 
+	sf::Vector2f increment = sf::Vector2f(2.f, 2.f);
+
 	void		LoadCharacter();
 
 public:
