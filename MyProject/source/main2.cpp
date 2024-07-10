@@ -1,11 +1,12 @@
 #include "../include/game.h"
+#include "../include/window.h"
 
-void main(int argc, void** argv[])
+int main2(int argc, void** argv[])
 {
 	Game game;
 	while (!game.GetWindow()->IsDone())
 	{
-		game.HandleInput();
+		//game.HandleInput();
 		game.Update();
 		game.Render();
 		game.RestartClock();

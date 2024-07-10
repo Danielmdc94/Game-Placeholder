@@ -1,7 +1,6 @@
 #pragma once
-
-#ifndef ENGINE_H
-# define ENGINE_H
+#ifndef GAME_H
+# define GAME_H
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -12,6 +11,7 @@
 #include <sstream>
 
 #include "../include/player.h"
+#include "../include/window.h"
 
 # define WIN_NAME   "MyRPG"
 # define WIN_W 		1920
@@ -23,15 +23,13 @@ class Game
 public:
 	Game();
 	~Game();
-	void HandleInput();
+	//void HandleInput();
 	void Update();
 	void Render();
 	Window* GetWindow();
 
 	sf::Time GetElapsed();
 	void RestartClock();
-
-	Player* Player();
 
 private:
 	Window m_window;

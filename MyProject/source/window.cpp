@@ -1,7 +1,5 @@
 #include "../include/window.h"
 
-Window::Window() { Setup("Window", sf::Vector2u(640, 480)); }
-
 Window::Window(const std::string& l_title, const sf::Vector2u& l_size)
 {
 	Setup(l_title, l_size);
@@ -12,7 +10,7 @@ Window::~Window()
 	Destroy();
 }
 
-void Window::Setup(const std::string l_title, const sf::Vector2u& l_size)
+void Window::Setup(const std::string& l_title, const sf::Vector2u& l_size)
 {
 	m_windowTitle = l_title;
 	m_windowSize = l_size;
@@ -25,11 +23,11 @@ void Window::Create()
 {
 	sf::Uint32 style;
 	if (m_isFullscreen)
-		style = sf::Style::Fullscreen
+		style = sf::Style::Fullscreen;
 	else
-		style = sf::Style::Default)
-		m_window.create({ m_windowSize.x, m_windowSize.y, 32 }, m_windowTitle, style);
-		m_window.setFramerateLimit(60);
+		style = sf::Style::Default;
+	m_window.create({ m_windowSize.x, m_windowSize.y, 32 }, m_windowTitle, style);
+	m_window.setFramerateLimit(60);
 }
 
 void Window::Destroy()

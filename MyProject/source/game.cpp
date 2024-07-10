@@ -1,40 +1,40 @@
-#ifndef ENGINE_H
-# define ENGINE_H
+#include "../include/game.h"
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Audio.hpp>
-
-#include <iostream>
-#include <sstream>
-
-#include "../include/player.h"
-
-# define WIN_NAME   "MyRPG"
-# define WIN_W 		1920
-# define WIN_H 		1080
-# define FPS		60
-
-class Game
+Game::Game() : m_window(WIN_NAME, sf::Vector2u(WIN_W, WIN_H))
 {
-public:
-	Game();
-	~Game();
-	void HandleInput();
-	void Update();
-	void Render();
-	Window* GetWindow();
 
-	sf::Time GetElapsed();
-	void RestartClock();
+}
 
-	Player* Player();
+Game::~Game()
+{
 
-private:
-	Window m_window;
-	sf::Clock m_clock;
-	sf::Time m_elapsed;
-};
+}
 
-#endif
+void Game::Update()
+{
+	m_window.Update();
+}
+
+void Game::Render()
+{
+	m_window.BeginDraw();
+
+	// Render here
+
+	m_window.EndDraw();
+}
+
+Window* Game::GetWindow()
+{
+	return &m_window;
+}
+
+sf::Time Game::GetElapsed()
+{
+	return m_elapsed;
+}
+
+void Game::RestartClock()
+{
+	m_elapsed = m_clock.restart();
+}

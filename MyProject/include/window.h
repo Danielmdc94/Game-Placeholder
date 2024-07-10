@@ -8,7 +8,6 @@
 class Window
 {
 public:
-	Window();
 	Window(const std::string& l_title, const sf::Vector2u& l_size);
 	~Window();
 
@@ -35,3 +34,5 @@ private:
 	bool m_isDone;
 	bool m_isFullscreen;
 };
+
+#endif
