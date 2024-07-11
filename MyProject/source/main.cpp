@@ -1,14 +1,4 @@
-#include "../include/engine.h"
 #include "../include/game.h"
-
-int main2()
-{
-	Engine engine;
-
-	engine.Start();
-
-	return EXIT_SUCCESS;
-}
 
 int main(int argc, void** argv[])
 {
@@ -20,5 +10,5 @@ int main(int argc, void** argv[])
 		game.Render();
 		game.RestartClock();
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }
