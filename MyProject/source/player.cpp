@@ -30,7 +30,7 @@ void Player::Move(const float dirX, const float dirY)
 	characterSprite.setPosition(position + sf::Vector2f(dirX, dirY));
 }
 
-void Player::Update(double deltaTime)
+void Player::Update(sf::Time deltaTime)
 {
 	float speed = 1.f;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))

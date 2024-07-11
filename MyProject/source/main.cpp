@@ -1,7 +1,7 @@
 #include "../include/engine.h"
 #include "../include/game.h"
 
-int main()
+int main2()
 {
 	Engine engine;
 
@@ -10,7 +10,7 @@ int main()
 	return EXIT_SUCCESS;
 }
 
-int main2(int argc, void** argv[])
+int main(int argc, void** argv[])
 {
 	Game game;
 	while (!game.GetWindow()->IsDone())

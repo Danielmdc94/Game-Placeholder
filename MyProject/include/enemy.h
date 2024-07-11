@@ -20,7 +20,7 @@ public:
 
 	// Update functions
 	void		Move(const float dirX, const float dirY);
-	void		Update(double deltaTime);
+	void		Update(sf::Time deltaTime);
 
 private:
 

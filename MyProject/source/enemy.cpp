@@ -32,7 +32,7 @@ void Enemy::Move(const float dirX, const float dirY)
 	characterSprite.setPosition(position + sf::Vector2f(dirX, dirY));
 }
 
-void Enemy::Update(double deltaTime)
+void Enemy::Update(sf::Time deltaTime)
 {
 	if ((characterSprite.getPosition().x + (characterSprite.getTextureRect().width / 2) > WIN_W && increment.x > 0) || (characterSprite.getPosition().x - (characterSprite.getTextureRect().width / 2) < 0 && increment.x < 0))
 		increment.x = -increment.x;

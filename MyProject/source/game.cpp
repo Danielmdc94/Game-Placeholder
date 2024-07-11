@@ -18,6 +18,8 @@ void Game::HandleInput()
 void Game::Update()
 {
 	m_window.Update();
+	player.Update(m_elapsed);
+	enemy.Update(m_elapsed);
 }
 
 void Game::Render()

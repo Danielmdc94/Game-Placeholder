@@ -16,10 +16,9 @@ void Engine::Start()
 	while (window.isOpen())
 	{
 		deltaTime = clock.restart();
-		double deltaTimeInSeconds = deltaTime.asSeconds();
 		while (window.pollEvent(event))
 			Input(event);
-		Update(deltaTimeInSeconds);
+		Update(deltaTime);
 		Render();
 	}
 }
@@ -56,7 +55,7 @@ void Engine::Render()
 	window.display();
 }
 
-void Engine::Update(double deltaTimeInSeconds)
+void Engine::Update(sf::Time deltaTimeInSeconds)
 {
 	player.Update(deltaTimeInSeconds);
 	enemy.Update(deltaTimeInSeconds);

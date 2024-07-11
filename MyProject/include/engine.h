@@ -34,7 +34,7 @@ private:
 
 	void Load();
 	void Input(Event event);
-	void Update(double deltaTimetInSeconds);
+	void Update(sf::Time deltaTimetInSeconds);
 	void Render();
 
 public:
