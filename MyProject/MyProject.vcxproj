@@ -152,17 +152,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\enemy.cpp" />
-    <ClCompile Include="source\game.cpp" />
-    <ClCompile Include="source\player.cpp" />
+    <ClCompile Include="source\Enemy.cpp" />
+    <ClCompile Include="source\Game.cpp" />
+    <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\window.cpp" />
+    <ClCompile Include="source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\enemy.h" />
-    <ClInclude Include="include\game.h" />
-    <ClInclude Include="include\player.h" />
-    <ClInclude Include="include\window.h" />
+    <ClInclude Include="include\Enemy.h" />
+    <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\Player.h" />
+    <ClInclude Include="include\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

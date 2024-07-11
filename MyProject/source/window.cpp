@@ -1,4 +1,4 @@
-#include "../include/window.h"
+#include "../include/Window.h"
 
 GameWindow::GameWindow(const std::string& l_title, const sf::Vector2u& l_size)
 {

@@ -1,4 +1,4 @@
-#include "../include/game.h"
+#include "../include/Game.h"
 
 Game::Game() : m_window(WIN_NAME, sf::Vector2u(WIN_W, WIN_H))
 {
@@ -31,19 +31,4 @@ void Game::Render()
 	m_window.Draw(*enemy.GetSprite());
 
 	m_window.EndDraw();
-}
-
-GameWindow* Game::GetWindow()
-{
-	return &m_window;
-}
-
-sf::Time Game::GetElapsed()
-{
-	return m_elapsed;
-}
-
-void Game::RestartClock()
-{
-	m_elapsed = m_clock.restart();
 }

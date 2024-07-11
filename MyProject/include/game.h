@@ -9,9 +9,9 @@
 #include <iostream>
 #include <sstream>
 
-#include "../include/window.h"
-#include "../include/player.h"
-#include "../include/enemy.h"
+#include "../include/Window.h"
+#include "../include/Player.h"
+#include "../include/Enemy.h"
 
 # define WIN_NAME   "MyRPG"
 # define WIN_W 		1920
@@ -26,10 +26,12 @@ public:
 	void HandleInput();
 	void Update();
 	void Render();
-	GameWindow* GetWindow();
 
-	sf::Time GetElapsed();
-	void RestartClock();
+	// Accessors
+	GameWindow* GetWindow() { return &m_window; };
+	sf::Time GetElapsed() { return m_elapsed; };
+
+	void RestartClock() { m_elapsed = m_clock.restart(); };
 
 	Player player;
 	Enemy enemy;

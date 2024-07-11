@@ -1,5 +1,5 @@
-#include "../include/enemy.h"
-#include "../include/game.h"
+#include "../include/Enemy.h"
+#include "../include/Game.h"
 
 void Enemy::LoadCharacter()
 {

@@ -4,7 +4,7 @@
 # define PLAYER_H
 #include <SFML/Graphics.hpp>
 
-#define CHARACTER_WALK_ANIM		"./assets/ThirdParty/lpc_entry/png/walkcycle/BODY_male.png"
+#define CHARACTER_WALK_ANIM "./assets/ThirdParty/lpc_entry/png/walkcycle/BODY_male.png"
 
 class Player
 {

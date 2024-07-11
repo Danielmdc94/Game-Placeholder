@@ -4,7 +4,7 @@
 # define ENEMY_H
 #include <SFML/Graphics.hpp>
 
-#define SKELETON_WALK_ANIM		"./assets/ThirdParty/lpc_entry/png/walkcycle/BODY_skeleton.png"
+#define SKELETON_WALK_ANIM "./assets/ThirdParty/lpc_entry/png/walkcycle/BODY_skeleton.png"
 
 class Enemy
 {

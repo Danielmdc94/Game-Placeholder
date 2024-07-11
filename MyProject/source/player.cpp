@@ -1,5 +1,5 @@
-#include "../include/player.h"
-#include "../include/game.h"
+#include "../include/Player.h"
+#include "../include/Game.h"
 
 void Player::LoadCharacter()
 {
@@ -22,6 +22,7 @@ Player::~Player()
 
 void Player::SetPosition(const float x, const float y)
 {
+
 }
 
 void Player::Move(const float dirX, const float dirY)
