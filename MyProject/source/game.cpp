@@ -10,6 +10,11 @@ Game::~Game()
 
 }
 
+void Game::HandleInput()
+{
+
+}
+
 void Game::Update()
 {
 	m_window.Update();
@@ -19,12 +24,14 @@ void Game::Render()
 {
 	m_window.BeginDraw();
 
-	// Render here
+	m_window.Draw(*player.GetSprite());
+
+	m_window.Draw(*enemy.GetSprite());
 
 	m_window.EndDraw();
 }
 
-Window* Game::GetWindow()
+GameWindow* Game::GetWindow()
 {
 	return &m_window;
 }

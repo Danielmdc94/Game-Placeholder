@@ -5,11 +5,11 @@
 
 #include <SFML/Graphics.hpp>
 
-class Window
+class GameWindow
 {
 public:
-	Window(const std::string& l_title, const sf::Vector2u& l_size);
-	~Window();
+	GameWindow(const std::string& l_title, const sf::Vector2u& l_size);
+	~GameWindow();
 
 	void BeginDraw();
 	void EndDraw();

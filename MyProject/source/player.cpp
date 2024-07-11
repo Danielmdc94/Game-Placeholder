@@ -1,5 +1,5 @@
 #include "../include/player.h"
-#include "../include/engine.h"
+#include "../include/game.h"
 
 void Player::LoadCharacter()
 {
@@ -33,14 +33,14 @@ void Player::Move(const float dirX, const float dirY)
 void Player::Update(double deltaTime)
 {
 	float speed = 1.f;
-	if (Keyboard::isKeyPressed(Keyboard::LShift))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
 		speed = 2.5;
-	if (Keyboard::isKeyPressed(Keyboard::W))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		Move(0, -speed);
-	if (Keyboard::isKeyPressed(Keyboard::A))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		Move(-speed, 0);
-	if (Keyboard::isKeyPressed(Keyboard::S))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		Move(0, speed);
-	if (Keyboard::isKeyPressed(Keyboard::D))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		Move(speed, 0);
 }

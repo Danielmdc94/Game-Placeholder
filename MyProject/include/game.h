@@ -1,4 +1,3 @@
-#pragma once
 #ifndef GAME_H
 # define GAME_H
 
@@ -10,8 +9,9 @@
 #include <iostream>
 #include <sstream>
 
-#include "../include/player.h"
 #include "../include/window.h"
+#include "../include/player.h"
+#include "../include/enemy.h"
 
 # define WIN_NAME   "MyRPG"
 # define WIN_W 		1920
@@ -23,16 +23,19 @@ class Game
 public:
 	Game();
 	~Game();
-	//void HandleInput();
+	void HandleInput();
 	void Update();
 	void Render();
-	Window* GetWindow();
+	GameWindow* GetWindow();
 
 	sf::Time GetElapsed();
 	void RestartClock();
 
+	Player player;
+	Enemy enemy;
+
 private:
-	Window m_window;
+	GameWindow m_window;
 	sf::Clock m_clock;
 	sf::Time m_elapsed;
 };

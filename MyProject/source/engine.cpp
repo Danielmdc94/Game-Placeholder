@@ -49,9 +49,9 @@ void Engine::Render()
 {
 	window.clear(Color::Black);
 
-	window.draw(player.GetSprite());
+	window.draw(*player.GetSprite());
 
-	window.draw(enemy.GetSprite());
+	window.draw(*enemy.GetSprite());
 
 	window.display();
 }

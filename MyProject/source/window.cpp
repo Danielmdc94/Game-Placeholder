@@ -1,16 +1,16 @@
 #include "../include/window.h"
 
-Window::Window(const std::string& l_title, const sf::Vector2u& l_size)
+GameWindow::GameWindow(const std::string& l_title, const sf::Vector2u& l_size)
 {
 	Setup(l_title, l_size);
 }
 
-Window::~Window()
+GameWindow::~GameWindow()
 {
 	Destroy();
 }
 
-void Window::Setup(const std::string& l_title, const sf::Vector2u& l_size)
+void GameWindow::Setup(const std::string& l_title, const sf::Vector2u& l_size)
 {
 	m_windowTitle = l_title;
 	m_windowSize = l_size;
@@ -19,7 +19,7 @@ void Window::Setup(const std::string& l_title, const sf::Vector2u& l_size)
 	Create();
 }
 
-void Window::Create()
+void GameWindow::Create()
 {
 	sf::Uint32 style;
 	if (m_isFullscreen)
@@ -30,12 +30,12 @@ void Window::Create()
 	m_window.setFramerateLimit(60);
 }
 
-void Window::Destroy()
+void GameWindow::Destroy()
 {
 	m_window.close();
 }
 
-void Window::Update()
+void GameWindow::Update()
 {
 	sf::Event event;
 	while (m_window.pollEvent(event))
@@ -47,39 +47,39 @@ void Window::Update()
 	}
 }
 
-void Window::ToggleFullscreen()
+void GameWindow::ToggleFullscreen()
 {
 	m_isFullscreen = !m_isFullscreen;
 	Destroy();
 	Create();
 }
 
-void Window::BeginDraw()
+void GameWindow::BeginDraw()
 {
 	m_window.clear(sf::Color::Black);
 }
 
-void Window::EndDraw()
+void GameWindow::EndDraw()
 {
 	m_window.display();
 }
 
-bool Window::IsDone()
+bool GameWindow::IsDone()
 {
 	return m_isDone;
 }
 
-bool Window::IsFullscreen()
+bool GameWindow::IsFullscreen()
 {
 	return m_isFullscreen;
 }
 
-sf::Vector2u Window::GetWindowSize()
+sf::Vector2u GameWindow::GetWindowSize()
 {
 	return m_windowSize;
 }
 
-void Window::Draw(sf::Drawable& l_drawable)
+void GameWindow::Draw(sf::Drawable& l_drawable)
 {
 	m_window.draw(l_drawable);
 }
