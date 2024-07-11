@@ -4,6 +4,7 @@
 # define WINDOW_H
 
 #include <SFML/Graphics.hpp>
+#include "../include/EventManager.h"
 
 class GameWindow
 {
@@ -19,8 +20,12 @@ public:
 	bool IsFullscreen();
 
 	sf::Vector2u GetWindowSize();
-	void ToggleFullscreen();
 	void Draw(sf::Drawable& l_drawable);
+
+	bool IsFocused() { return m_isFocused; };
+	EventManager* GetEventManager() { return &m_eventManager; };
+	void ToggleFullscreen(EventDetails* l_details);
+	void Close(EventDetails* l_details = nullptr) { m_isDone = true; };
 
 private:
 	void Setup(const std::string& l_title, const sf::Vector2u& l_size);
@@ -33,6 +38,9 @@ private:
 
 	bool m_isDone;
 	bool m_isFullscreen;
+
+	EventManager m_eventManager;
+	bool m_isFocused;
 };
 
 #endif

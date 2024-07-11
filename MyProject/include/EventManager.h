@@ -86,7 +86,7 @@ public:
 
 	bool AddBinding(Binding* l_binding);
 	bool RemoveBinding(std::string l_name);
-	void SetFocus(const bool& l_focus);
+	void SetFocus(const bool& l_focus) { m_hasFocus = l_focus; };
 
 	template<class T>
 	bool AddCallback(const std::string& l_name, void(T::* l_func)(EventDetails*), T* l_instance)

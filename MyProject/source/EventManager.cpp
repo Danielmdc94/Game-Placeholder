@@ -30,10 +30,11 @@ bool EventManager::RemoveBinding(std::string l_name)
 
 void EventManager::HandleEvent(sf::Event& l_event)
 {
-	// Handling SFML events.
 	for (auto& b_itr : m_bindings)
 	{
 		Binding* bind = b_itr.second;
+		if (bind->m_events.empty())
+			continue;
 		for (auto& e_itr : bind->m_events)
 		{
 			EventType sfmlEvent = (EventType)l_event.type;
@@ -125,7 +126,7 @@ void EventManager::LoadBindings()
 {
 	std::string delimiter = ":";
 	std::ifstream bindings;
-	bindings.open("../config/keys.cfg");
+	bindings.open("./config/keys.cfg");
 	if (!bindings.is_open())
 	{
 		std::cout << "! Failed loading keys.cfg." << std::endl;

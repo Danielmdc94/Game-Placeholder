@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\EventManager.cpp" />
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\Player.cpp" />
@@ -160,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Enemy.h" />
+    <ClInclude Include="include\EventManager.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\Window.h" />
