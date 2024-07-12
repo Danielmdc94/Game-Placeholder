@@ -36,6 +36,8 @@ public:
 	Player player;
 	Enemy enemy;
 
+	void MoveSprite(EventDetails* l_details);
+
 private:
 	GameWindow m_window;
 	sf::Clock m_clock;

@@ -2,7 +2,7 @@
 
 Game::Game() : m_window(WIN_NAME, sf::Vector2u(WIN_W, WIN_H))
 {
-
+	GetWindow()->GetEventManager()->AddCallback("Move", &Game::MoveSprite, this);
 }
 
 Game::~Game()
@@ -12,7 +12,7 @@ Game::~Game()
 
 void Game::HandleInput()
 {
-
+	
 }
 
 void Game::Update()
@@ -31,4 +31,15 @@ void Game::Render()
 	m_window.Draw(*enemy.GetSprite());
 
 	m_window.EndDraw();
+}
+
+
+void Game::MoveSprite(EventDetails* l_details) {
+	sf::Vector2i mousepos =
+		GetWindow()->GetEventManager()->GetMousePos(
+			GetWindow()->GetRenderWindow());
+	player.GetSprite()->setPosition(mousepos.x, mousepos.y);
+	std::cout << "Moving sprite to: "
+		<< mousepos.x << ":"
+		<< mousepos.y << std::endl;
 }

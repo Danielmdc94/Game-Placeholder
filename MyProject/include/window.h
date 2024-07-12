@@ -24,6 +24,7 @@ public:
 
 	bool IsFocused() { return m_isFocused; };
 	EventManager* GetEventManager() { return &m_eventManager; };
+	sf::RenderWindow* GetRenderWindow() { return &m_window; };
 	void ToggleFullscreen(EventDetails* l_details);
 	void Close(EventDetails* l_details = nullptr) { m_isDone = true; };
 
