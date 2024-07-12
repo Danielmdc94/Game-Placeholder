@@ -54,9 +54,9 @@ void GameWindow::Update()
 			m_isFocused = true;
 			m_eventManager.SetFocus(true);
 		}
-		m_eventManager.HandleEvent(event);
+		//m_eventManager.HandleEvent(event);
 	}
-	m_eventManager.Update();
+	//m_eventManager.Update();
 }
 
 void GameWindow::ToggleFullscreen(EventDetails* l_details)
