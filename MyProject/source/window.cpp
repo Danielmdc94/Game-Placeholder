@@ -12,7 +12,6 @@ GameWindow::~GameWindow()
 
 void GameWindow::Setup(const std::string& l_title, const sf::Vector2u& l_size)
 {
-	m_eventManager = EventManager::EventManager();
 	m_windowTitle = l_title;
 	m_windowSize = l_size;
 	m_isFullscreen = false;
@@ -54,9 +53,9 @@ void GameWindow::Update()
 			m_isFocused = true;
 			m_eventManager.SetFocus(true);
 		}
-		//m_eventManager.HandleEvent(event);
+		m_eventManager.HandleEvent(event);
 	}
-	//m_eventManager.Update();
+	m_eventManager.Update();
 }
 
 void GameWindow::ToggleFullscreen(EventDetails* l_details)

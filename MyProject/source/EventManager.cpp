@@ -116,6 +116,7 @@ void EventManager::Update()
 			auto callItr = m_callbacks.find(bind->m_name);
 			if (callItr != m_callbacks.end())
 				callItr->second(&bind->m_details);
+			std::cout << "Event: " << bind->m_name << std::endl;
 		}
 		bind->count = 0;
 		bind->m_details.Clear();
