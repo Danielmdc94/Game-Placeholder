@@ -35,11 +35,7 @@ void Game::Render()
 
 
 void Game::MoveSprite(EventDetails* l_details) {
-	sf::Vector2i mousepos =
-		GetWindow()->GetEventManager()->GetMousePos(
-			GetWindow()->GetRenderWindow());
+	sf::Vector2i mousepos = GetWindow()->GetEventManager()->GetMousePos(GetWindow()->GetRenderWindow());
 	player.GetSprite()->setPosition(mousepos.x, mousepos.y);
-	std::cout << "Moving sprite to: "
-		<< mousepos.x << ":"
-		<< mousepos.y << std::endl;
+	std::cout << "Moving sprite to: " << mousepos.x << ":" << mousepos.y << std::endl;
 }

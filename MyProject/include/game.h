@@ -1,5 +1,4 @@
-#ifndef GAME_H
-# define GAME_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -43,5 +42,3 @@ private:
 	sf::Clock m_clock;
 	sf::Time m_elapsed;
 };
-
-#endif

@@ -157,13 +157,16 @@
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\StateManager.cpp" />
     <ClCompile Include="source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\BaseState.h" />
     <ClInclude Include="include\Enemy.h" />
     <ClInclude Include="include\EventManager.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\Player.h" />
+    <ClInclude Include="include\StateManager.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
