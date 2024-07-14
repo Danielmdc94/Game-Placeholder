@@ -8,7 +8,7 @@ int main(int argc, void** argv[])
 		game.HandleInput();
 		game.Update();
 		game.Render();
-		game.RestartClock();
+		game.LateUpdate();
 	}
 	return EXIT_SUCCESS;
 }

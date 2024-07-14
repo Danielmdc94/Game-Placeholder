@@ -11,6 +11,7 @@
 #include "../include/Window.h"
 #include "../include/Player.h"
 #include "../include/Enemy.h"
+#include "../include/StateManager.h"
 
 # define WIN_NAME   "MyRPG"
 # define WIN_W 		1920
@@ -25,6 +26,7 @@ public:
 	void HandleInput();
 	void Update();
 	void Render();
+	void LateUpdate();
 
 	// Accessors
 	GameWindow* GetWindow() { return &m_window; };
@@ -39,6 +41,8 @@ public:
 
 private:
 	GameWindow m_window;
+	StateManager m_stateManager;
+	SharedContext m_context;
 	sf::Clock m_clock;
 	sf::Time m_elapsed;
 };

@@ -64,7 +64,6 @@ void EventManager::HandleEvent(sf::Event& l_event)
 			}
 			else
 			{
-				// No need for additional checking.
 				if (sfmlEvent == EventType::MouseWheel)
 					bind->m_details.m_mouseWheelDelta = l_event.mouseWheel.delta;
 				else if (sfmlEvent == EventType::WindowResized)
@@ -113,9 +112,20 @@ void EventManager::Update()
 		}
 		if (bind->m_events.size() == bind->count)
 		{
-			auto callItr = m_callbacks.find(bind->m_name);
-			if (callItr != m_callbacks.end())
-				callItr->second(&bind->m_details);
+			auto stateCallbacks = m_callbacks.find(m_currentState);
+			auto otherCallbacks = m_callbacks.find(StateType(0));
+			if (stateCallbacks != m_callbacks.end())
+			{
+				auto callItr = stateCallbacks->second.find(bind->m_name);
+				if (callItr != stateCallbacks->second.end())
+					callItr->second(&bind->m_details);
+			}
+			if (otherCallbacks != m_callbacks.end())
+			{
+				auto callItr = otherCallbacks->second.find(bind->m_name);
+				if (callItr != otherCallbacks->second.end())
+					callItr->second(&bind->m_details);
+			}
 			std::cout << "Event: " << bind->m_name << std::endl;
 		}
 		bind->count = 0;
