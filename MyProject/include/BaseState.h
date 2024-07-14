@@ -9,7 +9,7 @@ class BaseState
 	friend class StateManager;
 
 public:
-	BaseState(StateManager* l_stateManager) :m_stateMgr(l_stateManager), m_transparent(false), m_transcendent(false) {}
+	BaseState(StateManager* l_stateManager) : m_stateMgr(l_stateManager), m_transparent(false), m_transcendent(false) {}
 	virtual ~BaseState() {}
 	virtual void OnCreate() = 0;
 	virtual void OnDestroy() = 0;
