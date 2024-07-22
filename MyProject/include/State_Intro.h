@@ -6,6 +6,7 @@
 class State_Intro : public BaseState
 {
 public:
+	State_Intro(StateManager* l_stateManager) : BaseState(l_stateManager) {}
 	void OnCreate() override;
 	void OnDestroy() override;
 	void Activate() override;
@@ -20,5 +21,5 @@ private:
 	sf::Sprite m_introSprite;
 	sf::Font m_font;
 	sf::Text m_text;
-	float m_timePassed;
+	float m_timePassed = 0;
 };

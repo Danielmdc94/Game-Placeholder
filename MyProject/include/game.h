@@ -28,7 +28,6 @@ public:
 	void Render();
 	void LateUpdate();
 
-	// Accessors
 	GameWindow* GetWindow() { return &m_window; };
 	sf::Time GetElapsed() { return m_elapsed; };
 
