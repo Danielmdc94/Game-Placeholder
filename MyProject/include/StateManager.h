@@ -6,7 +6,9 @@
 
 #include "../include/BaseState.h"
 #include "../include/EventManager.h"
-#include "../include/window.h"
+#include "../include/Window.h"
+#include "../include/BaseState.h"
+#include "../include/State_Intro.h"
 
 enum class StateType
 {

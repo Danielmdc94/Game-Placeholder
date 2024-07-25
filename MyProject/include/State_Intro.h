@@ -2,6 +2,7 @@
 
 #include "../include/BaseState.h"
 #include "../include/EventManager.h"
+#include "../include/StateManager.h"
 
 class State_Intro : public BaseState
 {
@@ -10,7 +11,7 @@ public:
 	void OnCreate() override;
 	void OnDestroy() override;
 	void Activate() override;
-	void Deactivate()override;
+	void Deactivate() override;
 	void Update(const sf::Time& l_time) override;
 	void Draw() override;
 

@@ -1,7 +1,4 @@
 #include "../include/StateManager.h"
-#include "../include/BaseState.h"
-#include "../include/State_Intro.h"
-
 
 StateManager::StateManager(SharedContext* l_shared) : m_shared(l_shared)
 {
