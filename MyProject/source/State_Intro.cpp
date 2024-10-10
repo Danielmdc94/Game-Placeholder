@@ -8,21 +8,21 @@ void State_Intro::OnCreate()
 	m_introSprite.setTexture(m_introTexture);
 	m_introSprite.setOrigin(m_introTexture.getSize().x / 2.0f, m_introTexture.getSize().y / 2.0f);
 	m_introSprite.setPosition(windowSize.x / 2.0f, 0);
-	m_font.loadFromFile("arial.ttf");
+	m_font.loadFromFile("./assets/test/font/chary___.ttf");
 	m_text.setFont(m_font);
 	m_text.setString({ "Press SPACE to continue" });
-	m_text.setCharacterSize(15);
+	m_text.setCharacterSize(24);
 	sf::FloatRect textRect = m_text.getLocalBounds();
 	m_text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
 	m_text.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
-	EventManager* evMgr = m_stateMgr->GetContext()->m_eventManager;
-	evMgr->AddCallback(StateType::Intro, "Intro_Continue", &State_Intro::Continue, this);
+	EventManager* eventManager = m_stateMgr->GetContext()->m_eventManager;
+	eventManager->AddCallback(StateType::Intro, "Intro_Continue", &State_Intro::Continue, this);
 }
 
 void State_Intro::OnDestroy()
 {
-	EventManager* evMgr = m_stateMgr->GetContext()->m_eventManager;
-	evMgr->RemoveCallback(StateType::Intro, "Intro_Continue");
+	EventManager* eventManager = m_stateMgr->GetContext()->m_eventManager;
+	eventManager->RemoveCallback(StateType::Intro, "Intro_Continue");
 }
 
 void State_Intro::Update(const sf::Time& l_time)
