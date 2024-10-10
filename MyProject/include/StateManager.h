@@ -9,6 +9,7 @@
 #include "../include/Window.h"
 #include "../include/BaseState.h"
 #include "../include/State_Intro.h"
+#include "../include/State_MainMenu.h"
 
 enum class StateType
 {
