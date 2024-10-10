@@ -1,5 +1,4 @@
-#ifndef EVENTMANAGER_H
-# define EVENTMANAGER_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
@@ -122,5 +121,3 @@ private:
 	StateType m_currentState;
 	bool m_hasFocus;
 };
-
-#endif

@@ -2,8 +2,8 @@
 
 Game::Game() : m_window(WIN_NAME, sf::Vector2u(WIN_W, WIN_H)), m_stateManager(&m_context)
 {
-	//GetWindow()->GetEventManager()->AddCallback("Move", &Game::MoveSprite, this);
-	m_context.m_wind = &m_window;
+	GetWindow()->GetEventManager()->AddCallback(StateType(0), "Move", &Game::MoveSprite, this);
+	m_context.m_window = &m_window;
 	m_context.m_eventManager = m_window.GetEventManager();
 	m_stateManager.SwitchTo(StateType::Intro);
 }
@@ -36,7 +36,7 @@ void Game::Render()
 	m_window.Draw(*enemy.GetSprite());
 
 	m_window.EndDraw();
-}
+} 
 
 void Game::LateUpdate()
 {
@@ -47,6 +47,6 @@ void Game::LateUpdate()
 
 void Game::MoveSprite(EventDetails* l_details) {
 	sf::Vector2i mousepos = GetWindow()->GetEventManager()->GetMousePos(GetWindow()->GetRenderWindow());
-	player.GetSprite()->setPosition(mousepos.x, mousepos.y);
+	player.GetSprite()->setPosition(static_cast<float>(mousepos.x), static_cast<float>(mousepos.y));
 	std::cout << "Moving sprite to: " << mousepos.x << ":" << mousepos.y << std::endl;
 }

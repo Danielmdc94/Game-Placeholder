@@ -17,8 +17,8 @@ void GameWindow::Setup(const std::string& l_title, const sf::Vector2u& l_size)
 	m_isFullscreen = false;
 	m_isDone = false;
 	m_isFocused = true;
-	//m_eventManager.AddCallback("Fullscreen_toggle", &GameWindow::ToggleFullscreen, this);
-	//m_eventManager.AddCallback("Window_close", &GameWindow::Close, this);
+	m_eventManager.AddCallback(StateType(0), "Fullscreen_toggle", &GameWindow::ToggleFullscreen, this);
+	m_eventManager.AddCallback(StateType(0), "Window_close", &GameWindow::Close, this);
 	Create();
 }
 

@@ -1,8 +1,8 @@
-#ifndef WINDOW_H
-# define WINDOW_H
+#pragma once
 
 #include <SFML/Graphics.hpp>
 #include "../include/EventManager.h"
+#include "../include/StateManager.h"
 
 class GameWindow
 {
@@ -41,5 +41,3 @@ private:
 	EventManager m_eventManager;
 	bool m_isFocused;
 };
-
-#endif

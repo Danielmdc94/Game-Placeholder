@@ -9,7 +9,7 @@ void Enemy::LoadCharacter()
 	}
 	characterSprite.setTexture(characterTexture);
 	characterSprite.setTextureRect(sf::IntRect(0, 64 * 2, 64, 64));
-	characterSprite.setOrigin(characterSprite.getTextureRect().width / 2, characterSprite.getTextureRect().height / 2);
+	characterSprite.setOrigin(static_cast<float>(characterSprite.getTextureRect().width / 2), static_cast<float>(characterSprite.getTextureRect().height / 2));
 	characterSprite.setPosition(sf::Vector2f(WIN_W / 2, WIN_H / 2));
 }
 

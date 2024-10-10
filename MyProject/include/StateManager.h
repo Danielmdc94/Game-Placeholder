@@ -15,10 +15,13 @@ enum class StateType
 	Intro = 1, MainMenu, Game, Paused, GameOver, Credits
 };
 
+class GameWindow;
+class EventManager;
+
 struct SharedContext
 {
-	SharedContext() :m_wind(nullptr), m_eventManager(nullptr) {}
-	GameWindow* m_wind;
+	SharedContext() :m_window(nullptr), m_eventManager(nullptr) {}
+	GameWindow* m_window;
 	EventManager* m_eventManager;
 };
 
