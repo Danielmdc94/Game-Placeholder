@@ -18,14 +18,16 @@ public:
 	virtual void Update(const sf::Time& l_time) = 0;
 	virtual void Draw() = 0;
 
+	StateManager* GetStateManager() { return m_stateManager; }
+	sf::View& GetView() { return m_view; }
 	void SetTransparent(const bool& l_transparent) { m_transparent = l_transparent; };
 	bool IsTransparent()const { return m_transparent; }
 	void SetTranscendent(const bool& l_transcendence) { m_transcendent = l_transcendence; };
 	bool IsTranscendent()const { return m_transcendent; }
-	StateManager* GetStateManager() { return m_stateManager; }
 
 protected:
 	StateManager* m_stateManager;
+	sf::View m_view;
 	bool m_transparent;
 	bool m_transcendent;
 };

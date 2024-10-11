@@ -20,6 +20,8 @@ public:
 	sf::Vector2u GetWindowSize();
 	void Draw(sf::Drawable& l_drawable);
 
+	sf::FloatRect GetViewSpace();
+
 	bool IsFocused() { return m_isFocused; };
 	EventManager* GetEventManager() { return &m_eventManager; };
 	sf::RenderWindow* GetRenderWindow() { return &m_window; };
