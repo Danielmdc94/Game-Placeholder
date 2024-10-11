@@ -11,7 +11,7 @@ void State_Game::OnCreate()
 	EventManager* eventManager = m_stateManager->GetContext()->m_eventManager;
 	eventManager->AddCallback(StateType::Game, "Key_Escape", &State_Game::MainMenu, this);
 	eventManager->AddCallback(StateType::Game, "Key_P", &State_Game::Pause, this);
-	eventManager->AddCallback(StateType(0), "Move", &State_Game::MoveSprite, this);
+	eventManager->AddCallback(StateType(0), "Move", &State_Game::MovePlayerToMouse, this);
 }
 
 void State_Game::OnDestroy()
@@ -61,7 +61,7 @@ void State_Game::Activate() {}
 void State_Game::Deactivate() {}
 
 //----TEST----//
-void State_Game::MoveSprite(EventDetails* l_details)
+void State_Game::MovePlayerToMouse(EventDetails* l_details)
 {
 	sf::Vector2i mousePos = l_details->m_mouse;
 	player.GetSprite()->setPosition(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));

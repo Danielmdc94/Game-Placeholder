@@ -5,6 +5,15 @@ void State_Intro::OnCreate()
 	m_timePassed = 0.0f;
 	sf::Vector2u windowSize = m_stateManager->GetContext()->m_window->GetRenderWindow()->getSize();
 
+	//----TEST----//
+	m_bgTexture.loadFromFile("./assets/ThirdParty/background_image/bg001.png");
+	m_bgSprite.setTexture(m_bgTexture);
+	sf::Vector2u textureSize = m_bgTexture.getSize();
+	float scaleX = static_cast<float>(windowSize.x) / textureSize.x;
+	float scaleY = static_cast<float>(windowSize.y) / textureSize.y;
+	m_bgSprite.setScale(scaleX, scaleY);
+	//------------//
+
 	m_introTexture.loadFromFile("./assets/test/test-image.png");
 	m_introSprite.setTexture(m_introTexture);
 	m_introSprite.setOrigin(m_introTexture.getSize().x / 2.0f, m_introTexture.getSize().y / 2.0f);
@@ -40,6 +49,9 @@ void State_Intro::Update(const sf::Time& l_time)
 void State_Intro::Draw()
 {
 	sf::RenderWindow* window = m_stateManager->GetContext()->m_window->GetRenderWindow();
+	//----TEST----//
+	window->draw(m_bgSprite);
+	//------------//
 	window->draw(m_introSprite);
 	if (m_timePassed >= 5.0f)
 		window->draw(m_text);

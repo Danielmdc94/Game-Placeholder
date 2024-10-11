@@ -21,7 +21,9 @@ public:
 
 	void MainMenu(EventDetails* l_details);
 	void Pause(EventDetails* l_details);
-	void MoveSprite(EventDetails* l_details);
+	//----TEST----//
+	void MovePlayerToMouse(EventDetails* l_details);
+	//------------//
 
 private:
 	//----TEST----//

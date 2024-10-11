@@ -18,6 +18,10 @@ public:
 	void Continue(EventDetails* l_details);
 
 private:
+	//----TEST----//
+	sf::Sprite m_bgSprite;
+	sf::Texture m_bgTexture;
+	//------------//
 	sf::Texture m_introTexture;
 	sf::Sprite m_introSprite;
 	sf::Font m_font;
