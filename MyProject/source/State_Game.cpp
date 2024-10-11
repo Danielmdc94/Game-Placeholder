@@ -11,6 +11,7 @@ void State_Game::OnCreate()
 	EventManager* eventManager = m_stateManager->GetContext()->m_eventManager;
 	eventManager->AddCallback(StateType::Game, "Key_Escape", &State_Game::MainMenu, this);
 	eventManager->AddCallback(StateType::Game, "Key_P", &State_Game::Pause, this);
+	eventManager->AddCallback(StateType(0), "Move", &State_Game::MoveSprite, this);
 }
 
 void State_Game::OnDestroy()
@@ -22,6 +23,10 @@ void State_Game::OnDestroy()
 
 void State_Game::Update(const sf::Time& l_time)
 {
+	//----TEST----//
+	player.Update(l_time);
+	enemy.Update(l_time);
+	//------------//
 	sf::Vector2u l_windSize = m_stateManager->GetContext()->m_window->GetWindowSize();
 	sf::Vector2u l_textSize = m_texture.getSize();
 
@@ -35,7 +40,11 @@ void State_Game::Update(const sf::Time& l_time)
 
 void State_Game::Draw()
 {
-	m_stateManager->GetContext()->m_window->GetRenderWindow()->draw(m_sprite);
+	m_stateManager->GetContext()->m_window->Draw(m_sprite);
+	//----TEST----//
+	m_stateManager->GetContext()->m_window->Draw(*player.GetSprite());
+	m_stateManager->GetContext()->m_window->Draw(*enemy.GetSprite());
+	//------------//
 }
 
 void State_Game::MainMenu(EventDetails* l_details)
@@ -50,3 +59,12 @@ void State_Game::Pause(EventDetails* l_details)
 void State_Game::Activate() {}
 
 void State_Game::Deactivate() {}
+
+//----TEST----//
+void State_Game::MoveSprite(EventDetails* l_details)
+{
+	sf::Vector2i mousePos = l_details->m_mouse;
+	player.GetSprite()->setPosition(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
+	std::cout << "Moving sprite to: " << mousePos.x << ":" << mousePos.y << std::endl;
+}
+//------------//

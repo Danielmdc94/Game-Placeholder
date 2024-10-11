@@ -9,8 +9,6 @@
 #include <sstream>
 
 #include "../include/Window.h"
-#include "../include/Player.h"
-#include "../include/Enemy.h"
 #include "../include/StateManager.h"
 
 # define WIN_NAME   "MyRPG"
@@ -32,11 +30,6 @@ public:
 	sf::Time GetElapsed() { return m_elapsed; };
 
 	void RestartClock() { m_elapsed = m_clock.restart(); };
-
-	Player player;
-	Enemy enemy;
-
-	void MoveSprite(EventDetails* l_details);
 
 private:
 	GameWindow m_window;
