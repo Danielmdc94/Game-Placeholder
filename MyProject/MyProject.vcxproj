@@ -161,6 +161,7 @@
     <ClCompile Include="source\State_Intro.cpp" />
     <ClCompile Include="source\Window.cpp" />
     <ClCompile Include="source\State_MainMenu.cpp" />
+    <ClCompile Include="source\State_Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\BaseState.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="include\State_Intro.h" />
     <ClInclude Include="include\Window.h" />
     <ClInclude Include="include\State_MainMenu.h" />
+    <ClInclude Include="include\State_Game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
