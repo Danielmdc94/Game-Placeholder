@@ -31,11 +31,11 @@ void State_Game::OnDestroy()
 	eventManager->RemoveCallback(StateType::Game, "Key_P");
 }
 
-void State_Game::Update(const sf::Time& l_time)
+void State_Game::Update(const sf::Time& l_deltaTime)
 {
 	//----TEST----//
-	player.Update(l_time);
-	enemy.Update(l_time);
+	player.Update(l_deltaTime);
+	enemy.Update(l_deltaTime);
 	//------------//
 	sf::Vector2u l_windSize = m_stateManager->GetContext()->m_window->GetWindowSize();
 	sf::Vector2u l_textSize = m_texture.getSize();
@@ -45,7 +45,7 @@ void State_Game::Update(const sf::Time& l_time)
 	if ((m_sprite.getPosition().y > l_windSize.y - l_textSize.y && m_increment.y > 0) || (m_sprite.getPosition().y < 0 && m_increment.y < 0))
 		m_increment.y = -m_increment.y;
 
-	m_sprite.setPosition(m_sprite.getPosition().x + (m_increment.x * l_time.asSeconds()), m_sprite.getPosition().y + (m_increment.y * l_time.asSeconds()));
+	m_sprite.setPosition(m_sprite.getPosition().x + (m_increment.x * l_deltaTime.asSeconds()), m_sprite.getPosition().y + (m_increment.y * l_deltaTime.asSeconds()));
 }
 
 void State_Game::Draw()

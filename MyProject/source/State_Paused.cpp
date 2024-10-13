@@ -41,7 +41,7 @@ void State_Paused::Unpause(EventDetails* l_details)
 	m_stateManager->SwitchTo(StateType::Game);
 }
 
-void State_Paused::Update(const sf::Time& l_time) {}
+void State_Paused::Update(const sf::Time& l_deltaTime) {}
 
 void State_Paused::Activate() {}
 

@@ -17,7 +17,7 @@ StateManager::~StateManager()
 	}
 }
 
-void StateManager::Update(const sf::Time& l_time)
+void StateManager::Update(const sf::Time& l_deltaTime)
 {
 	if (m_states.empty())
 		return;
@@ -34,10 +34,10 @@ void StateManager::Update(const sf::Time& l_time)
 			--itr;
 		}
 		for (; itr != m_states.end(); ++itr)
-			itr->second->Update(l_time);
+			itr->second->Update(l_deltaTime);
 	}
 	else
-		m_states.back().second->Update(l_time);
+		m_states.back().second->Update(l_deltaTime);
 }
 
 void StateManager::Draw()

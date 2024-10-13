@@ -39,7 +39,7 @@ class StateManager
 public:
 	StateManager(SharedContext* l_shared);
 	~StateManager();
-	void Update(const sf::Time& l_time);
+	void Update(const sf::Time& l_deltaTime);
 	void Draw();
 	void ProcessRequests();
 	SharedContext* GetContext();

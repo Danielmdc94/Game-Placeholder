@@ -37,12 +37,12 @@ void State_Intro::OnDestroy()
 	eventManager->RemoveCallback(StateType::Intro, "Intro_Continue");
 }
 
-void State_Intro::Update(const sf::Time& l_time)
+void State_Intro::Update(const sf::Time& l_deltaTime)
 {
 	if (m_timePassed < 5.0f)
 	{
-		m_timePassed += l_time.asSeconds();
-		m_introSprite.setPosition(m_introSprite.getPosition().x, m_introSprite.getPosition().y + (48 * l_time.asSeconds()));
+		m_timePassed += l_deltaTime.asSeconds();
+		m_introSprite.setPosition(m_introSprite.getPosition().x, m_introSprite.getPosition().y + (48 * l_deltaTime.asSeconds()));
 	}
 }
 

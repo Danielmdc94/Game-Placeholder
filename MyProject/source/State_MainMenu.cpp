@@ -91,6 +91,6 @@ void State_MainMenu::Draw() {
 	}
 }
 
-void State_MainMenu::Update(const sf::Time& l_time) {}
+void State_MainMenu::Update(const sf::Time& l_deltaTime) {}
 
 void State_MainMenu::Deactivate() {}

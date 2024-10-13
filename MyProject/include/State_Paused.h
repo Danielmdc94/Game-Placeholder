@@ -12,7 +12,7 @@ public:
 	void OnDestroy() override;
 	void Activate() override;
 	void Deactivate() override;
-	void Update(const sf::Time& l_time) override;
+	void Update(const sf::Time& l_deltaTime) override;
 	void Draw() override;
 
 	void Unpause(EventDetails* l_details);

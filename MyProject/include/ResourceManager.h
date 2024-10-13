@@ -1,7 +1,8 @@
 #pragma once
 
 #include <unordered_map>
-#include <string>
+#include <sstream>
+#include <fstream>
 #include <algorithm>
 
 #include "../include/Utilities.h"
@@ -27,10 +28,10 @@ public:
 
 	bool RequireResource(const std::string& l_id)
 	{
-		auto resource = Find(l_id);
-		if (resource)
+		auto res = Find(l_id);
+		if (res)
 		{
-			++resource->second;
+			++res->second;
 			return true;
 		}
 		auto path = m_paths.find(l_id);
