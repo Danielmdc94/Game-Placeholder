@@ -29,6 +29,8 @@ private:
 	//----TEST----//
 	Player player;
 	Enemy enemy;
+	sf::Sprite m_bgSprite;
+	sf::Texture m_bgTexture;
 	//------------//
 	sf::Texture m_texture;
 	sf::Sprite m_sprite;

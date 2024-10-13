@@ -180,6 +180,7 @@
     <ClInclude Include="include\State_Paused.h" />
     <ClInclude Include="include\Utilities.h" />
     <ClInclude Include="include\ResourceManager.h" />
+    <ClInclude Include="include\TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

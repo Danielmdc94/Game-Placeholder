@@ -12,6 +12,16 @@ void State_Game::OnCreate()
 	eventManager->AddCallback(StateType::Game, "Key_Escape", &State_Game::MainMenu, this);
 	eventManager->AddCallback(StateType::Game, "Key_P", &State_Game::Pause, this);
 	eventManager->AddCallback(StateType(0), "Move", &State_Game::MovePlayerToMouse, this);
+
+	//----TEST----//
+	sf::Vector2u windowSize = m_stateManager->GetContext()->m_window->GetRenderWindow()->getSize();
+	m_bgTexture.loadFromFile("./assets/ThirdParty/LPC_forest/LPC_forest/preview.png");
+	m_bgSprite.setTexture(m_bgTexture);
+	sf::Vector2u textureSize = m_bgTexture.getSize();
+	float scaleX = static_cast<float>(windowSize.x) / textureSize.x;
+	float scaleY = static_cast<float>(windowSize.y) / textureSize.y;
+	m_bgSprite.setScale(scaleX, scaleY);
+	//------------//
 }
 
 void State_Game::OnDestroy()
@@ -40,10 +50,16 @@ void State_Game::Update(const sf::Time& l_time)
 
 void State_Game::Draw()
 {
-	m_stateManager->GetContext()->m_window->Draw(m_sprite);
+	sf::RenderWindow* window = m_stateManager->GetContext()->m_window->GetRenderWindow();
 	//----TEST----//
-	m_stateManager->GetContext()->m_window->Draw(*player.GetSprite());
-	m_stateManager->GetContext()->m_window->Draw(*enemy.GetSprite());
+	window->draw(m_bgSprite);
+	//------------//
+
+	window->draw(m_sprite);
+
+	//----TEST----//
+	window->draw(*player.GetSprite());
+	window->draw(*enemy.GetSprite());
 	//------------//
 }
 
