@@ -155,6 +155,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\EntityBase.cpp" />
+    <ClCompile Include="source\Map.cpp" />
     <ClCompile Include="source\Anim_Directional.cpp" />
     <ClCompile Include="source\Anim_Base.cpp" />
     <ClCompile Include="source\EventManager.cpp" />
@@ -171,6 +173,7 @@
     <ClCompile Include="source\SpriteSheet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\EntityBase.h" />
     <ClInclude Include="include\Anim_Directional.h" />
     <ClInclude Include="include\Anim_Base.h" />
     <ClInclude Include="include\Directions.h" />
@@ -189,6 +192,7 @@
     <ClInclude Include="include\ResourceManager.h" />
     <ClInclude Include="include\TextureManager.h" />
     <ClInclude Include="include\SpriteSheet.h" />
+    <ClInclude Include="include\Map.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
