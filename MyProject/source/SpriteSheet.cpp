@@ -11,7 +11,8 @@ void SpriteSheet::ReleaseSheet()
 {
 	m_textureManager->ReleaseResource(m_texture);
 	m_animationCurrent = nullptr;
-	while (m_animations.begin() != m_animations.end()) {
+	while (m_animations.begin() != m_animations.end())
+	{
 		delete m_animations.begin()->second;
 		m_animations.erase(m_animations.begin());
 	}

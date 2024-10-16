@@ -45,4 +45,3 @@ private:
 	Anim_Base* m_animationCurrent;
 	TextureManager* m_textureManager;
 };
-

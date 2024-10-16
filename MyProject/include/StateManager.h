@@ -6,12 +6,14 @@
 
 #include "../include/BaseState.h"
 #include "../include/EventManager.h"
+#include "../include/TextureManager.h"
 #include "../include/Window.h"
 #include "../include/BaseState.h"
 #include "../include/State_Intro.h"
 #include "../include/State_MainMenu.h"
 #include "../include/State_Game.h"
 #include "../include/State_Paused.h"
+#include "../include/Map.h"
 
 enum class StateType
 {
@@ -23,9 +25,11 @@ class EventManager;
 
 struct SharedContext
 {
-	SharedContext() :m_window(nullptr), m_eventManager(nullptr) {}
+	SharedContext() :m_window(nullptr), m_eventManager(nullptr), m_textureManager(nullptr), m_gameMap(nullptr) {}
 	GameWindow* m_window;
 	EventManager* m_eventManager;
+	TextureManager* m_textureManager;
+	Map* m_gameMap;
 };
 
 using StateContainer = std::vector<std::pair<StateType, BaseState*>>;
