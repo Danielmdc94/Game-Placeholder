@@ -25,11 +25,10 @@ class EventManager;
 
 struct SharedContext
 {
-	SharedContext() :m_window(nullptr), m_eventManager(nullptr), m_textureManager(nullptr), m_gameMap(nullptr) {}
+	SharedContext() :m_window(nullptr), m_eventManager(nullptr), m_textureManager(nullptr) {}
 	GameWindow* m_window;
 	EventManager* m_eventManager;
 	TextureManager* m_textureManager;
-	Map* m_gameMap;
 };
 
 using StateContainer = std::vector<std::pair<StateType, BaseState*>>;

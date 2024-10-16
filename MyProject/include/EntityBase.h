@@ -10,6 +10,20 @@ enum class EntityState { Idle, Walking, Jumping, Attacking, Hurt, Dying };
 
 class EntityManager;
 
+struct CollisionElement
+{
+	CollisionElement(float l_area, TileInfo* l_info,
+		const sf::FloatRect& l_bounds) :m_area(l_area),
+		m_tile(l_info), m_tileBounds(l_bounds) {}
+	float m_area;
+	TileInfo* m_tile;
+	sf::FloatRect m_tileBounds;
+};
+
+using Collisions = std::vector<CollisionElement>;
+
+bool SortCollisions(const CollisionElement& l_1, const CollisionElement& l_2) { return l_1.m_area > l_2.m_area; };
+
 class EntityBase
 {
 	friend class EntityManager;
@@ -61,17 +75,3 @@ protected:
 	Collisions m_collisions;
 	EntityManager* m_entityManager;
 };
-
-struct CollisionElement
-{
-	CollisionElement(float l_area, TileInfo* l_info,
-		const sf::FloatRect& l_bounds) :m_area(l_area),
-		m_tile(l_info), m_tileBounds(l_bounds) {}
-	float m_area;
-	TileInfo* m_tile;
-	sf::FloatRect m_tileBounds;
-};
-
-using Collisions = std::vector<CollisionElement>;
-
-bool SortCollisions(const CollisionElement& l_1, const CollisionElement& l_2) { return l_1.m_area > l_2.m_area; };
