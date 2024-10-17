@@ -39,6 +39,7 @@ public:
 	std::string GetName() { return m_name; };
 	unsigned int GetId() { return m_id; };
 	EntityType GetType() { return m_type; };
+	EntityState GetState() { return m_state; };
 
 	void Move(float l_x, float l_y);
 	void AddVelocity(float l_x, float l_y);

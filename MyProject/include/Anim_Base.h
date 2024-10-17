@@ -17,7 +17,10 @@ public:
 	void SetLooping(const bool l_loop);
 	void SetName(const std::string l_name);
 
+	std::string GetName() { return m_name; };
+
 	bool IsInAction();
+	bool IsPlaying() { return m_playing; };
 
 	void Play();
 	void Pause();

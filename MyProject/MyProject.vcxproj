@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Character.cpp" />
     <ClCompile Include="source\EntityManager.cpp" />
     <ClCompile Include="source\EntityBase.cpp" />
     <ClCompile Include="source\Map.cpp" />
@@ -174,6 +175,7 @@
     <ClCompile Include="source\SpriteSheet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Character.h" />
     <ClInclude Include="include\EntityManager.h" />
     <ClInclude Include="include\EntityBase.h" />
     <ClInclude Include="include\Anim_Directional.h" />
