@@ -1,10 +1,15 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <string.h>
+#include <unordered_map>
+#include <map>
+#include <array>
+#include <fstream>
+#include <sstream>
 
-#include "../include/TextureManager.h"
-#include "../include/StateManager.h"
+#include "../include/Utilities.h"
+#include "../include/SharedContext.h"
+#include "../include/BaseState.h"
 
 enum Sheet { Tile_Size = 32, Sheet_Width = 256, Sheet_Height = 256 };
 
@@ -28,6 +33,7 @@ struct TileInfo
 			Sheet::Tile_Size, Sheet::Tile_Size);
 		m_sprite.setTextureRect(tileBoundaries);
 	}
+
 	~TileInfo()
 	{
 		if (m_texture == "")
@@ -35,10 +41,12 @@ struct TileInfo
 		m_context->m_textureManager->ReleaseResource(m_texture);
 	}
 	sf::Sprite m_sprite;
+
 	TileID m_id;
 	std::string m_name;
 	sf::Vector2f m_friction;
 	bool m_deadly;
+
 	SharedContext* m_context;
 	std::string m_texture;
 };
@@ -60,8 +68,8 @@ public:
 	~Map();
 
 	Tile* GetTile(unsigned int l_x, unsigned int l_y);
+	TileInfo* GetDefaultTile();
 
-	TileInfo* GetDefaultTile() { return m_defaultTile; };
 	float GetGravity()const { return m_mapGravity; };
 	unsigned int GetTileSize()const { return Sheet::Tile_Size; };
 	const sf::Vector2u& GetMapSize()const { return m_maxMapSize; };
@@ -81,7 +89,7 @@ private:
 	TileSet m_tileSet;
 	TileMap m_tileMap;
 	sf::Sprite m_background;
-	TileInfo* m_defaultTile; //TODO: Pointer or not pointer?
+	TileInfo m_defaultTile;
 	sf::Vector2u m_maxMapSize;
 	sf::Vector2f m_playerStart;
 	unsigned int m_tileCount;

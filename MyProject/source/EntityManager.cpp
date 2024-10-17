@@ -1,4 +1,5 @@
 #include "../include/EntityManager.h"
+#include "../include/SharedContext.h"
 
 EntityManager::EntityManager(SharedContext* l_context,
 	unsigned int l_maxEntities) :m_context(l_context),

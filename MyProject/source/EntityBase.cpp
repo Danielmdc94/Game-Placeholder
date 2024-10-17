@@ -1,10 +1,22 @@
+#include <cmath>
+
 #include "../include/EntityBase.h"
+#include "../include/EntityManager.h"
+#include "../include/SharedContext.h"
+#include "../include/Map.h"
+
+bool SortCollisions(const CollisionElement& l_1, const CollisionElement& l_2) 
+{
+	return l_1.m_area > l_2.m_area;
+};
 
 EntityBase::EntityBase(EntityManager* l_entityMgr)
 	:m_entityManager(l_entityMgr), m_name("BaseEntity"),
 	m_type(EntityType::Base), m_referenceTile(nullptr),
 	m_state(EntityState::Idle), m_id(0),
 	m_collidingOnX(false), m_collidingOnY(false) {}
+
+EntityBase::~EntityBase() {}
 
 void EntityBase::SetPosition(const float& l_x, const float& l_y)
 {
@@ -185,9 +197,9 @@ void EntityBase::ResolveCollisions()
 			if (abs(xDiff) > abs(yDiff))
 			{
 				if (xDiff > 0)
-					resolve = (itr.m_tileBounds.left + tileSize) – m_AABB.left;
+					resolve = (itr.m_tileBounds.left + tileSize) - m_AABB.left;
 				else
-					resolve = -((m_AABB.left + m_AABB.width) – itr.m_tileBounds.left);
+					resolve = -((m_AABB.left + m_AABB.width) - itr.m_tileBounds.left);
 				Move(resolve, 0);
 				m_velocity.x = 0;
 				m_collidingOnX = true;
@@ -195,9 +207,9 @@ void EntityBase::ResolveCollisions()
 			else
 			{
 				if (yDiff > 0)
-					resolve = (itr.m_tileBounds.top + tileSize) – m_AABB.top;
+					resolve = (itr.m_tileBounds.top + tileSize) - m_AABB.top;
 				else
-					resolve = -((m_AABB.top + m_AABB.height) – itr.m_tileBounds.top);
+					resolve = -((m_AABB.top + m_AABB.height) - itr.m_tileBounds.top);
 				Move(0, resolve);
 				m_velocity.y = 0;
 				if (m_collidingOnY)

@@ -9,7 +9,10 @@
 #include <sstream>
 
 #include "../include/Window.h"
+#include "../include/EventManager.h"
 #include "../include/StateManager.h"
+#include "../include/TextureManager.h"
+#include "../include/EntityManager.h"
 
 # define WIN_NAME   "MyRPG"
 # define WIN_W 		1920
@@ -32,9 +35,12 @@ public:
 	void RestartClock() { m_elapsed = m_clock.restart(); };
 
 private:
+	SharedContext m_context;
 	GameWindow m_window;
 	StateManager m_stateManager;
-	SharedContext m_context;
+	TextureManager m_textureManager;
+	EntityManager m_entityManager;
+
 	sf::Clock m_clock;
 	sf::Time m_elapsed;
 };

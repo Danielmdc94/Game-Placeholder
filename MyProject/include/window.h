@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "../include/EventManager.h"
-#include "../include/StateManager.h"
 
 class GameWindow
 {

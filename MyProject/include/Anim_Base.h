@@ -3,6 +3,7 @@
 #include <String>
 
 class SpriteSheet;
+
 using Frame = unsigned int;
 
 class Anim_Base 

@@ -1,14 +1,15 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-
-#include "../include/Map.h"
+#include <string>
+#include <SFML/System/Vector2.hpp>
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 
 enum class EntityType { Base, Enemy, Player };
 
 enum class EntityState { Idle, Walking, Jumping, Attacking, Hurt, Dying };
 
-class EntityManager;
+struct TileInfo;
 
 struct CollisionElement
 {
@@ -21,9 +22,9 @@ struct CollisionElement
 };
 
 using Collisions = std::vector<CollisionElement>;
+bool SortCollisions(const CollisionElement& l_1, const CollisionElement& l_2);
 
-bool SortCollisions(const CollisionElement& l_1, const CollisionElement& l_2) { return l_1.m_area > l_2.m_area; };
-
+class EntityManager;
 class EntityBase
 {
 	friend class EntityManager;

@@ -1,9 +1,10 @@
 #pragma once
 
+#include <string>
 #include <unordered_map>
-#include <sstream>
+#include <iostream>
 #include <fstream>
-#include <algorithm>
+#include <sstream>
 
 #include "../include/Utilities.h"
 

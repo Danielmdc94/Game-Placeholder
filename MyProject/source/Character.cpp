@@ -1,4 +1,6 @@
 #include "../include/Character.h"
+#include "../include/EntityManager.h"
+#include "../include/StateManager.h"
 
 Character::Character(EntityManager* l_entityMgr) : EntityBase(l_entityMgr),
 	m_spriteSheet(m_entityManager->GetContext()->m_textureManager),
@@ -6,6 +8,8 @@ Character::Character(EntityManager* l_entityMgr) : EntityBase(l_entityMgr),
 {
 	m_name = "Character";
 }
+
+Character::~Character() { }
 
 void Character::Move(const Direction& l_dir)
 {

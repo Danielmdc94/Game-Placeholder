@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../include/SpriteSheet.h"
-#include "../include/EntityManager.h"
+#include "EntityBase.h"
+#include "SpriteSheet.h"
 
 class Character : public EntityBase
 {

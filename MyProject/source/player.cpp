@@ -1,4 +1,6 @@
 #include "../include/Player.h"
+#include "../include/EntityManager.h"
+#include "../include/StateManager.h"
 
 
 Player::Player(EntityManager* l_entityMgr) : Character(l_entityMgr)
@@ -19,6 +21,18 @@ Player::~Player()
 	events->RemoveCallback(StateType::Game, "Player_MoveRight");
 	events->RemoveCallback(StateType::Game, "Player_Jump");
 	events->RemoveCallback(StateType::Game, "Player_Attack");
+}
+
+void Player::React(EventDetails* l_details)
+{
+	if (l_details->m_name == "Player_MoveLeft")
+		Character::Move(Direction::Left);
+	else if (l_details->m_name == "Player_MoveRight")
+		Character::Move(Direction::Right);
+	else if (l_details->m_name == "Player_Jump")
+		Character::Jump();
+	else if (l_details->m_name == "Player_Attack")
+		Character::Attack();
 }
 
 void Player::OnEntityCollision(EntityBase* l_collider, bool l_attack)

@@ -2,12 +2,16 @@
 
 #include <unordered_map>
 #include <string>
+#include <functional>
 
-#include "../include/EntityBase.h"
+#include "../include/Player.h"
+#include "../include/Enemy.h"
 
 using EntityContainer = std::unordered_map<unsigned int, EntityBase*>;
 using EntityFactory = std::unordered_map<EntityType, std::function<EntityBase* (void)>>;
 using EnemyTypes = std::unordered_map<std::string, std::string>;
+
+struct SharedContext;
 
 class EntityManager
 {
@@ -20,12 +24,12 @@ public:
 	EntityBase* Find(const std::string& l_name);
 	void Remove(unsigned int l_id);
 
+	SharedContext* GetContext() { return m_context; };
+
 	void Update(float l_dT);
 	void Draw();
 
 	void Purge();
-
-	SharedContext* GetContext();
 
 private:
 	template<class T>

@@ -1,4 +1,6 @@
 #include "../include/SpriteSheet.h"
+#include "../include/Utilities.h"
+
 #include <sstream>
 #include <fstream>
 #include <iostream>
