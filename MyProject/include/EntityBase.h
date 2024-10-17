@@ -36,6 +36,10 @@ public:
 	void SetSize(const float& l_x, const float& l_y);
 	void SetState(const EntityState& l_state);
 
+	std::string GetName() { return m_name; };
+	unsigned int GetId() { return m_id; };
+	EntityType GetType() { return m_type; };
+
 	void Move(float l_x, float l_y);
 	void AddVelocity(float l_x, float l_y);
 	void Accelerate(float l_x, float l_y);

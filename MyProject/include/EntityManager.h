@@ -26,6 +26,7 @@ public:
 	void Purge();
 
 	SharedContext* GetContext();
+
 private:
 	template<class T>
 	void RegisterEntity(const EntityType& l_type)
