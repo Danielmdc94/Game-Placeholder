@@ -1,32 +1,13 @@
-#ifndef PLAYER_H
-# define PLAYER_H
-#include <SFML/Graphics.hpp>
+#pragma once
 
-#define CHARACTER_WALK_ANIM "./assets/ThirdParty/lpc_entry/png/walkcycle/BODY_male.png"
+#include "../include/Character.h"
 
-class Player
+class Player : public Character
 {
-
 public:
-	Player();
+	Player(EntityManager* l_entityMgr);
 	~Player();
 
-	// Accessors
-	sf::Sprite*	GetSprite() { return &this->characterSprite; }
-
-	// Modifiers
-	void		SetPosition(const float x, const float y);
-
-	// Update functions
-	void		Move(const float dirX, const float dirY);
-	void		Update(sf::Time deltaTime);
-
-private:
-
-	sf::Sprite characterSprite;
-	sf::Texture characterTexture;
-
-	void		LoadCharacter();
+	void OnEntityCollision(EntityBase* l_collider, bool l_attack);
+	void React(EventDetails* l_details);
 };
-
-#endif

@@ -40,6 +40,7 @@ public:
 	unsigned int GetId() { return m_id; };
 	EntityType GetType() { return m_type; };
 	EntityState GetState() { return m_state; };
+	sf::Vector2f GetPosition() { return m_position; };
 
 	void Move(float l_x, float l_y);
 	void AddVelocity(float l_x, float l_y);

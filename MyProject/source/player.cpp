@@ -1,47 +1,46 @@
 #include "../include/Player.h"
-#include "../include/Game.h"
 
-void Player::LoadCharacter()
-{
-	if (!characterTexture.loadFromFile(CHARACTER_WALK_ANIM))
-	{
-		std::cout << "ERROR::PLAYER::Could not load player texture!" << "\n";
-	}
-	characterSprite.setTexture(characterTexture);
-	characterSprite.setTextureRect(sf::IntRect(0, 64 * 2, 64, 64));
-}
 
-Player::Player()
+Player::Player(EntityManager* l_entityMgr) : Character(l_entityMgr)
 {
-	LoadCharacter();
+	Load("Player.char");
+	m_type = EntityType::Player;
+	EventManager* events = m_entityManager->GetContext()->m_eventManager;
+	events->AddCallback<Player>(StateType::Game, "Player_MoveLeft", &Player::React, this);
+	events->AddCallback<Player>(StateType::Game, "Player_MoveRight", &Player::React, this);
+	events->AddCallback<Player>(StateType::Game, "Player_Jump", &Player::React, this);
+	events->AddCallback<Player>(StateType::Game, "Player_Attack", &Player::React, this);
 }
 
 Player::~Player()
 {
+	EventManager* events = m_entityManager->GetContext()->m_eventManager;
+	events->RemoveCallback(StateType::Game, "Player_MoveLeft");
+	events->RemoveCallback(StateType::Game, "Player_MoveRight");
+	events->RemoveCallback(StateType::Game, "Player_Jump");
+	events->RemoveCallback(StateType::Game, "Player_Attack");
 }
 
-void Player::SetPosition(const float x, const float y)
+void Player::OnEntityCollision(EntityBase* l_collider, bool l_attack)
 {
-
-}
-
-void Player::Move(const float dirX, const float dirY)
-{
-	sf::Vector2f position = characterSprite.getPosition();
-	characterSprite.setPosition(position + sf::Vector2f(dirX, dirY));
-}
-
-void Player::Update(sf::Time deltaTime)
-{
-	float speed = 1.f;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
-		speed = 2.5;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		Move(0, -speed);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		Move(-speed, 0);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		Move(0, speed);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		Move(speed, 0);
+	if (m_state == EntityState::Dying)
+		return;
+	if (l_attack)
+	{
+		if (m_state != EntityState::Attacking)
+			return;
+		if (!m_spriteSheet.GetCurrentAnim()->IsInAction())
+			return;
+		if (l_collider->GetType() != EntityType::Enemy && l_collider->GetType() != EntityType::Player)
+			return;
+		Character* opponent = (Character*)l_collider;
+		opponent->GetHurt(1);
+		if (m_position.x > opponent->GetPosition().x)
+			opponent->AddVelocity(-32, 0);
+		else
+			opponent->AddVelocity(32, 0);
+	}
+	else
+		return;
+		// Other behavior.
 }
