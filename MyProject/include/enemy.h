@@ -1,33 +1,17 @@
-#ifndef ENEMY_H
-# define ENEMY_H
-#include <SFML/Graphics.hpp>
+#pragma once
 
-#define SKELETON_WALK_ANIM "./assets/ThirdParty/lpc_entry/png/walkcycle/BODY_skeleton.png"
+#include "../include/Character.h"
 
-class Enemy
+class Enemy : public Character
 {
 public:
-	Enemy();
+	Enemy(EntityManager* l_entityMgr);
 	~Enemy();
 
-	// Accessors
-	sf::Sprite*	GetSprite() { return &this->characterSprite; }
-
-	// Modifiers
-	void		SetPosition(const float x, const float y);
-
-	// Update functions
-	void		Move(const float dirX, const float dirY);
-	void		Update(sf::Time deltaTime);
+	void OnEntityCollision(EntityBase* l_collider, bool l_attack);
+	void Update(float l_dT);
 
 private:
-
-	sf::Sprite	characterSprite;
-	sf::Texture	characterTexture;
-
-	sf::Vector2f increment = sf::Vector2f(2.f, 2.f);
-
-	void		LoadCharacter();
+	sf::Vector2f m_destination;
+	bool m_hasDestination;
 };
-
-#endif
