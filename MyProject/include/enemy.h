@@ -9,7 +9,7 @@ public:
 	~Enemy();
 
 	void OnEntityCollision(EntityBase* l_collider, bool l_attack);
-	void Update(float l_dT);
+	void Update(float l_deltaTime);
 
 private:
 	sf::Vector2f m_destination;
