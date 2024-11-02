@@ -12,7 +12,7 @@ template<typename Derived, typename T>
 class ResourceManager
 {
 public:
-	ResourceManager(const std::string& l_pathsFile) { LoadPaths(l_pathsFile); }
+	ResourceManager(const std::string& l_pathsFile) : m_resources() { LoadPaths(l_pathsFile); }
 	virtual ~ResourceManager() { PurgeResources(); }
 
 	T* GetResource(const std::string& l_id) 
@@ -65,6 +65,7 @@ public:
 		}
 	}
 
+protected:
 	T* Load(const std::string& l_path)
 	{
 		return static_cast<Derived*>(this)->Load(l_path);
@@ -89,7 +90,7 @@ private:
 	void LoadPaths(const std::string& l_pathFile)
 	{
 		std::ifstream paths;
-		paths.open(Utils::GetWorkingDirectory() + l_pathFile);
+		paths.open(Utils::GetResourceDirectory() + l_pathFile);
 		if (paths.is_open())
 		{
 			std::string line;

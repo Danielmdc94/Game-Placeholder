@@ -5,7 +5,7 @@ EntityManager::EntityManager(SharedContext* l_context,
 	unsigned int l_maxEntities) :m_context(l_context),
 	m_maxEntities(l_maxEntities), m_idCounter(0)
 {
-	LoadEnemyTypes("EnemyList.list");
+	LoadEnemyTypes(Utils::GetResourceDirectory() + "Media/Characters/EnemyList.list");
 	RegisterEntity<Player>(EntityType::Player);
 	RegisterEntity<Enemy>(EntityType::Enemy);
 }
@@ -142,7 +142,7 @@ void EntityManager::EntityCollisionCheck()
 void EntityManager::LoadEnemyTypes(const std::string& l_path)
 {
 	std::ifstream file;
-	file.open(Utils::GetWorkingDirectory() + l_path);
+	file.open(l_path);
 	if (!file.is_open())
 	{
 		std::cout << "! Failed loading enemy types file: " << l_path << std::endl;

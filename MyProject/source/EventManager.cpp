@@ -137,10 +137,10 @@ void EventManager::LoadBindings()
 {
 	std::string delimiter = ":";
 	std::ifstream bindings;
-	bindings.open("./config/Keys.cfg");
+	bindings.open(Utils::GetResourceDirectory() + "Keys.cfg");
 	if (!bindings.is_open())
 	{
-		std::cout << "! Failed loading Keys.cfg." << std::endl;
+		std::cout << "! Failed loading " + Utils::GetResourceDirectory() + "Keys.cfg" << std::endl;
 		return;
 	}
 	std::string line;

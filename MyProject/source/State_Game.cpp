@@ -12,7 +12,7 @@ void State_Game::OnCreate()
 	m_view.zoom(0.6f);
 	m_stateManager->GetContext()->m_window->GetRenderWindow()->setView(m_view);
 	m_gameMap = new Map(m_stateManager->GetContext(), this);
-	m_gameMap->LoadMap("media/Maps/map1.map");
+	m_gameMap->LoadMap("Media/Maps/map1.map");
 }
 
 void State_Game::OnDestroy()
@@ -29,13 +29,15 @@ void State_Game::Update(const sf::Time& l_deltaTime)
 {
 	SharedContext* context = m_stateManager->GetContext();
 	EntityBase* player = context->m_entityManager->Find("Player");
-	if (!player) {
+	if (!player)
+	{
 		std::cout << "Respawning player..." << std::endl;
 		context->m_entityManager->Add(EntityType::Player, "Player");
 		player = context->m_entityManager->Find("Player");
 		player->SetPosition(m_gameMap->GetPlayerStart());
 	}
-	else {
+	else
+	{
 		m_view.setCenter(player->GetPosition());
 		context->m_window->GetRenderWindow()->setView(m_view);
 	}
@@ -53,8 +55,7 @@ void State_Game::Update(const sf::Time& l_deltaTime)
 		context->m_window->GetRenderWindow()->setView(m_view);
 	}
 	m_gameMap->Update(l_deltaTime.asSeconds());
-	m_stateManager->GetContext()->
-		m_entityManager->Update(l_deltaTime.asSeconds());
+	m_stateManager->GetContext()->m_entityManager->Update(l_deltaTime.asSeconds());
 }
 
 void State_Game::Draw()

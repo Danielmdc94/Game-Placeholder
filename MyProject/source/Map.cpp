@@ -40,7 +40,7 @@ void Map::Update(float l_deltaTime)
 		PurgeMap();
 		m_loadNextMap = false;
 		if (m_nextMap != "")
-			LoadMap("media/maps/" + m_nextMap);
+			LoadMap("Media/maps/" + m_nextMap);
 		else
 			m_currentState->GetStateManager()->SwitchTo(StateType::GameOver);
 		m_nextMap = "";
@@ -98,7 +98,7 @@ void Map::PurgeTileSet()
 void Map::LoadTiles(const std::string& l_path)
 {
 	std::ifstream file;
-	file.open(Utils::GetWorkingDirectory() + l_path);
+	file.open(Utils::GetResourceDirectory() + l_path);
 	if (!file.is_open())
 	{
 		std::cout << "! Failed loading tile set file: " << l_path << std::endl;
@@ -128,7 +128,7 @@ void Map::LoadTiles(const std::string& l_path)
 void Map::LoadMap(const std::string& l_path)
 {
 	std::ifstream mapFile;
-	mapFile.open(Utils::GetWorkingDirectory() + l_path);
+	mapFile.open(Utils::GetResourceDirectory() + l_path);
 	if (!mapFile.is_open()) { std::cout << "! Failed loading map file: " << l_path << std::endl; return; }
 	EntityManager* entityManager = m_context->m_entityManager;
 	std::string line;

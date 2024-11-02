@@ -5,21 +5,26 @@ void State_Intro::OnCreate()
 	m_timePassed = 0.0f;
 	sf::Vector2u windowSize = m_stateManager->GetContext()->m_window->GetRenderWindow()->getSize();
 
+	TextureManager* textureManager = m_stateManager->GetContext()->m_textureManager;
+
+	textureManager->RequireResource("Bg1");
+	m_bgSprite.setTexture(*textureManager->GetResource("Bg1"));
+	m_bgSprite.setOrigin(textureManager->GetResource("Bg1")->getSize().x / 2.0f, textureManager->GetResource("Bg1")->getSize().y / 2.0f);
+	m_introSprite.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
+
+	textureManager->RequireResource("Intro");
+	m_introSprite.setTexture(*textureManager->GetResource("Intro"));
+	m_introSprite.setOrigin(textureManager->GetResource("Intro")->getSize().x / 2.0f, textureManager->GetResource("Intro")->getSize().y / 2.0f);
+	m_introSprite.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
+
 	//----TEST----//
-	m_bgTexture.loadFromFile("./assets/ThirdParty/background_image/bg001.png");
-	m_bgSprite.setTexture(m_bgTexture);
-	sf::Vector2u textureSize = m_bgTexture.getSize();
+	sf::Vector2u textureSize = textureManager->GetResource("Bg1")->getSize();
 	float scaleX = static_cast<float>(windowSize.x) / textureSize.x;
 	float scaleY = static_cast<float>(windowSize.y) / textureSize.y;
 	m_bgSprite.setScale(scaleX, scaleY);
 	//------------//
 
-	m_introTexture.loadFromFile("./assets/test/test-image.png");
-	m_introSprite.setTexture(m_introTexture);
-	m_introSprite.setOrigin(m_introTexture.getSize().x / 2.0f, m_introTexture.getSize().y / 2.0f);
-	m_introSprite.setPosition(windowSize.x / 2.0f, 0);
-
-	m_font.loadFromFile("./assets/test/font/chary___.ttf");
+	m_font.loadFromFile(Utils::GetResourceDirectory() + "Media/Fonts/chary___.ttf");
 	m_text.setFont(m_font);
 	m_text.setString({ "Press SPACE to continue" });
 	m_text.setCharacterSize(24);

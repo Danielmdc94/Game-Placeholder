@@ -74,7 +74,7 @@ void SpriteSheet::Draw(sf::RenderWindow* l_window)
 bool SpriteSheet::LoadSheet(const std::string& l_file)
 {
 	std::ifstream sheet;
-	sheet.open(Utils::GetWorkingDirectory() + l_file);
+	sheet.open(Utils::GetResourceDirectory() + l_file);
 	if (sheet.is_open())
 	{
 		ReleaseSheet();

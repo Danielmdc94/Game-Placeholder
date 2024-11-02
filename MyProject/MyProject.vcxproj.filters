@@ -147,4 +147,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Downloads\EnemyList.list" />
+    <None Include="..\..\..\Downloads\Player.char" />
+  </ItemGroup>
 </Project>

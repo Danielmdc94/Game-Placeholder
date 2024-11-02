@@ -65,7 +65,7 @@ void Character::GetHurt(const int& l_damage)
 void Character::Load(const std::string& l_path)
 {
 	std::ifstream file;
-	file.open(Utils::GetWorkingDirectory() + l_path);
+	file.open(Utils::GetResourceDirectory() + std::string("Media/Characters/") + l_path);
 	if (!file.is_open())
 	{
 		std::cout << "! Failed loading character file: " << l_path << std::endl;
@@ -85,7 +85,7 @@ void Character::Load(const std::string& l_path)
 		{
 			std::string path;
 			keystream >> path;
-			m_spriteSheet.LoadSheet("media/SpriteSheets/" + path);
+			m_spriteSheet.LoadSheet("Media/SpriteSheets/" + path);
 		}
 		else if (type == "Hitpoints")
 			keystream >> m_hitpoints;
