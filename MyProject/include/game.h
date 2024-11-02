@@ -24,7 +24,7 @@ class Game
 public:
 	Game();
 	~Game();
-	void HandleInput();
+
 	void Update();
 	void Render();
 	void LateUpdate();
