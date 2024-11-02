@@ -60,7 +60,8 @@ void State_Game::Update(const sf::Time& l_deltaTime)
 
 void State_Game::Draw()
 {
-	sf::RenderWindow* window = m_stateManager->GetContext()->m_window->GetRenderWindow();
+	m_gameMap->Draw();
+	m_stateManager->GetContext()->m_entityManager->Draw();
 }
 
 void State_Game::MainMenu(EventDetails* l_details)
