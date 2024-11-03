@@ -21,7 +21,11 @@ struct TileInfo
 	{
 		TextureManager* textureManager = l_context->m_textureManager;
 		if (l_texture == "")
-			m_id = l_id; return;
+		{
+			m_id = l_id; 
+			return;
+		}
+			
 		if (!textureManager->RequireResource(l_texture))
 			return;
 		m_texture = l_texture;
