@@ -39,7 +39,6 @@ void Character::Jump()
 void Character::Attack()
 {
 	if (GetState() == EntityState::Dying ||
-		GetState() == EntityState::Jumping ||
 		GetState() == EntityState::Hurt ||
 		GetState() == EntityState::Attacking)
 	{

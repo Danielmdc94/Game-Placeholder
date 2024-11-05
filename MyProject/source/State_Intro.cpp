@@ -7,21 +7,29 @@ void State_Intro::OnCreate()
 
 	TextureManager* textureManager = m_stateManager->GetContext()->m_textureManager;
 
+	sf::Vector2u size = m_stateManager->GetContext()->m_window->GetWindowSize();
+	m_view.setSize(size.x, size.y);
+	m_view.setCenter(size.x / 2, size.y / 2);
+	m_view.zoom(0.8f);
+	m_stateManager->GetContext()->m_window->GetRenderWindow()->setView(m_view);
+
 	textureManager->RequireResource("Bg1");
 	m_bgSprite.setTexture(*textureManager->GetResource("Bg1"));
 	m_bgSprite.setOrigin(textureManager->GetResource("Bg1")->getSize().x / 2.0f, textureManager->GetResource("Bg1")->getSize().y / 2.0f);
-	m_introSprite.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
+	m_bgSprite.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
 
 	textureManager->RequireResource("Intro");
 	m_introSprite.setTexture(*textureManager->GetResource("Intro"));
 	m_introSprite.setOrigin(textureManager->GetResource("Intro")->getSize().x / 2.0f, textureManager->GetResource("Intro")->getSize().y / 2.0f);
-	m_introSprite.setPosition(windowSize.x / 2.0f, windowSize.y / 2.0f);
+	m_introSprite.setPosition(windowSize.x / 2.0f, textureManager->GetResource("Intro")->getSize().y / 2.0f);
 
 	//----TEST----//
+	sf::Vector2f viewSize = m_view.getSize();
 	sf::Vector2u textureSize = textureManager->GetResource("Bg1")->getSize();
-	float scaleX = static_cast<float>(windowSize.x) / textureSize.x;
-	float scaleY = static_cast<float>(windowSize.y) / textureSize.y;
-	m_bgSprite.setScale(scaleX, scaleY);
+	sf::Vector2f scaleFactors;
+	scaleFactors.x = viewSize.x / textureSize.x;
+	scaleFactors.y = viewSize.y / textureSize.y;
+	m_bgSprite.setScale(scaleFactors);
 	//------------//
 
 	m_font.loadFromFile(Utils::GetResourceDirectory() + "Media/Fonts/chary___.ttf");

@@ -205,10 +205,6 @@
     <ClInclude Include="include\SharedContext.h" />
     <ClInclude Include="include\State_GameOver.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\Downloads\EnemyList.list" />
-    <None Include="..\..\..\Downloads\Player.char" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -9,5 +9,5 @@ int main(int argc, void** argv[])
 		game.Render();
 		game.LateUpdate();
 	}
-	system("PAUSE");
+	return(0);
 }
